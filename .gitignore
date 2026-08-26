@@ -1,0 +1,61 @@
+# Unity generated folders. Library alone is ~1.5 GB and is rebuilt from Assets +
+# ProjectSettings + Packages on any machine that opens the project.
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# Meta files are part of the project: they carry the GUIDs that scenes and prefabs
+# reference. Losing one breaks every reference to that asset.
+!/[Aa]ssets/**/*.meta
+
+# IDE and build tool leftovers
+.vs/
+.idea/
+.gradle/
+/[Aa]ssets/Plugins/Editor/JetBrains*
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Crash reports
+sysinfo.txt
+crashlytics-build.properties
+
+# Build artefacts
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Auto-generated Android streaming assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# OS noise
+.DS_Store
+Thumbs.db

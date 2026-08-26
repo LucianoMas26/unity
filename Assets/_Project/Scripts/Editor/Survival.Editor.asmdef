@@ -1,0 +1,27 @@
+{
+    "name": "Survival.Editor",
+    "rootNamespace": "Survival.EditorTools",
+    "references": [
+        "Survival.Core",
+        "Survival.World",
+        "Survival.Player",
+        "Unity.RenderPipelines.Universal.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "",
+            "define": "SURVIVAL_URP"
+        }
+    ],
+    "noEngineReferences": false
+}
