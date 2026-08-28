@@ -59,3 +59,9 @@ crashlytics-build.properties
 # OS noise
 .DS_Store
 Thumbs.db
+
+# Cesium ion access token. It is a personal credential and this repository is
+# public, so the settings asset stays out. Cesium recreates it on first open;
+# each machine sets its own token in Cesium > Cesium.
+/[Aa]ssets/CesiumSettings/
+/[Aa]ssets/CesiumSettings.meta
