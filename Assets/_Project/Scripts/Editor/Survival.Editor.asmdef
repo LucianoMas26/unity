@@ -5,6 +5,7 @@
         "Survival.Core",
         "Survival.World",
         "Survival.Player",
+        "Survival.GeoData",
         "Unity.RenderPipelines.Universal.Runtime"
     ],
     "includePlatforms": [

@@ -28,6 +28,10 @@ namespace Survival.World
 
         [SerializeField] Material _terrainMaterial;
 
+        [Tooltip("Optional. Assign an elevation-backed asset to build the world from real data " +
+                 "instead of noise. Nothing else in the pipeline changes.")]
+        [SerializeField] TerrainHeightSourceAsset _heightSourceOverride;
+
         [Header("Debug")]
         [Tooltip("Logs the seed and chunk counts. Useful when checking that a seed reproduces.")]
         [SerializeField] bool _logDiagnostics = true;
@@ -43,7 +47,7 @@ namespace Survival.World
 
         CancellationTokenSource _cancellation;
         Transform _chunkRoot;
-        ProceduralHeightProvider _heightSource;
+        ITerrainHeightSource _heightSource;
         IRegionProvider _regionProvider;
         RegionSnapshot _region;
         ChunkCoord _lastViewerCoord;
@@ -109,7 +113,9 @@ namespace Survival.World
 
             _region = _settings.Region != null ? _settings.Region.ToSnapshot() : RegionSnapshot.CreateFallback();
             _regionProvider = new SingleRegionProvider(_region);
-            _heightSource = new ProceduralHeightProvider(Context, _regionProvider);
+            _heightSource = _heightSourceOverride != null
+                ? _heightSourceOverride.CreateSource(Context, _regionProvider)
+                : new ProceduralHeightProvider(Context, _regionProvider);
 
             DiscardExistingChunks();
 
@@ -366,7 +372,7 @@ namespace Survival.World
         /// function of the seed, so spawning and placement never have to wait for streaming.
         /// </summary>
         public float SampleHeight(float worldX, float worldZ)
-            => _heightSource?.SampleHeight(worldX, worldZ) ?? 0f;
+            => _heightSource != null ? _heightSource.SampleHeight(worldX, worldZ) : 0f;
 
         public bool HasCollisionAt(Vector3 worldPosition)
         {
@@ -379,9 +385,13 @@ namespace Survival.World
         /// <summary>Centre of the test region, lifted clear of the ground. Where the player starts.</summary>
         public Vector3 GetSpawnPoint(float clearance = 2f)
         {
-            Vector3 centre = _settings != null ? _settings.RegionCentre : Vector3.zero;
-            centre.y = SampleHeight(centre.x, centre.z) + clearance;
-            return centre;
+            if (_settings == null) return Vector3.zero;
+
+            Vector2 xz = _heightSourceOverride != null
+                ? _heightSourceOverride.GetPreferredSpawnXZ(_settings.RegionSizeMeters)
+                : new Vector2(_settings.RegionCentre.x, _settings.RegionCentre.z);
+
+            return new Vector3(xz.x, SampleHeight(xz.x, xz.y) + clearance, xz.y);
         }
 
         void OnDrawGizmosSelected()

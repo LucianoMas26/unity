@@ -1,0 +1,17 @@
+{
+    "name": "Survival.GeoData",
+    "rootNamespace": "Survival.GeoData",
+    "references": [
+        "Survival.Core",
+        "Survival.World"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

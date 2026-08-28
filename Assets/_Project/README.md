@@ -31,8 +31,35 @@ build de release.
 
 | Escena | Para qué |
 | --- | --- |
-| `Scenes/Prototype.unity` | El mundo real: terreno por seed, streaming, región de 5×5 km. |
+| `Scenes/Prototype.unity` | Región ficticia: terreno por seed, streaming, 5×5 km. |
 | `Scenes/MovementTest.unity` | Sala de pruebas: suelo a cuadros de 2 m, rampas, escalones, pilares, un pasillo estrecho y un techo. Para juzgar movimiento, cámara y colisiones sin que el terreno procedural meta ruido. |
+| `Scenes/RealWorld.unity` | Rosario real: elevación SRTM y huellas de OpenStreetMap. Mismo streamer, mismo mesher, mismo LOD — solo cambia la fuente de altura. |
+
+## Datos geográficos reales
+
+El módulo `Survival.GeoData` sustituye **solo la entrada** del pipeline. `WorldStreamer` tiene un
+campo `Height Source Override` de tipo `TerrainHeightSourceAsset`; si está vacío usa ruido, y si
+tiene un `GeoDataset` usa elevación real. Nada aguas abajo se entera.
+
+Los datos se descargan **una vez** con las herramientas de `scratchpad/` y se cachean como JSON en
+`GeoData/Source/`, y de ahí a un asset con `Survival > Geo > Import Rosario Dataset`. El juego
+nunca toca la red: funciona sin internet, sigue siendo determinista, y no machaca dos APIs
+públicas gratuitas cada vez que alguien pulsa Play.
+
+Fuentes: elevación de [opentopodata.org](https://www.opentopodata.org) (dataset `srtm30m`),
+vectores de [OpenStreetMap](https://www.openstreetmap.org/copyright) vía Overpass, ambos bajo ODbL.
+
+### Límites conocidos
+
+- SRTM tiene ~30 m de resolución y la rejilla guardada ~39 m, contra 2,7 m entre vértices del
+  mesh. `GeoHeightSource` interpola y añade ruido **por debajo** de la resolución del dato para
+  que no se vean facetas. Inventa detalle, pero solo detalle que el dato nunca tuvo.
+- El 90% de los edificios de Rosario están etiquetados solo `building=yes` y caen en el arquetipo
+  `Unknown`. Los arquetipos concretos son unos pocos cientos de hitos, no el grueso de la ciudad.
+- Overpass devuelve las vías **enteras** que cruzan el bounding box, así que hay geometría hasta
+  1,2 km fuera de la región. Cae sobre terreno extrapolado plano.
+- `GeoFeatureSpawner` dibuja volúmenes placeholder, **no** es el sistema modular de edificios.
+  Cuando ese exista, consume el mismo `GeoDataset`: las huellas reales ya están guardadas.
 
 ## Arquitectura
 

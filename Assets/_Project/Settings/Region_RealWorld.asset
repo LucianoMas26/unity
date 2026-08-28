@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a991b9cf5c57b43b74efd0db3b2840, type: 3}
+  m_Name: Region_RealWorld
+  m_EditorClassIdentifier: Survival.World::Survival.World.RegionDefinition
+  _id: rosario
+  _displayName: Rosario
+  _description: 
+  _dangerLevel: 1
+  _terrain:
+    BaseElevation: 30
+    ContinentAmplitude: 70
+    ContinentNoise:
+      Frequency: 0.00035
+      Octaves: 4
+      Lacunarity: 2
+      Gain: 0.5
+      Ridged: 0
+    MountainAmplitude: 190
+    MountainNoise:
+      Frequency: 0.0016
+      Octaves: 5
+      Lacunarity: 2
+      Gain: 0.5
+      Ridged: 1
+    MountainMaskNoise:
+      Frequency: 0.00022
+      Octaves: 3
+      Lacunarity: 2
+      Gain: 0.5
+      Ridged: 0
+    MountainMaskThreshold: 0.52
+    DetailAmplitude: 5
+    DetailNoise:
+      Frequency: 0.02
+      Octaves: 3
+      Lacunarity: 2
+      Gain: 0.5
+      Ridged: 0
+    WaterLevel: 1.5
+  _palette:
+    Lowland: {r: 0.32, g: 0.38, b: 0.24, a: 1}
+    Highland: {r: 0.27, g: 0.3, b: 0.22, a: 1}
+    Rock: {r: 0.3, g: 0.29, b: 0.29, a: 1}
+    Peak: {r: 0.62, g: 0.63, b: 0.61, a: 1}
+    Shore: {r: 0.44, g: 0.42, b: 0.33, a: 1}
+    RockSlope: 0.35
+    HighlandHeight: 24.75
+    PeakHeight: 46.75
+  _fogColor: {r: 0.55, g: 0.57, b: 0.54, a: 1}
+  _fogDensity: 0.0035

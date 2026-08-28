@@ -24,6 +24,7 @@ namespace Survival.EditorTools
         [MenuItem("Survival/Setup/4 - Build Movement Test Scene", false, 23)]
         public static void Build()
         {
+            if (SceneWiring.RefuseDuringPlayMode("Movement Test")) return;
             if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
 
             ProjectPaths.EnsureFolder(ProjectPaths.Scenes);

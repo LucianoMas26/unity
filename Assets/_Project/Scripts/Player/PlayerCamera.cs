@@ -192,7 +192,7 @@ namespace Survival.Player
             transform.rotation = rotation;
 
             _followVelocity = Vector3.zero;
-            _collision?.Reset();
+            if (_collision != null) _collision.Reset(); // ?. would call into a destroyed component
         }
 
         void SetCursorLocked(bool locked)

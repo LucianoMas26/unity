@@ -13,6 +13,8 @@ namespace Survival.EditorTools
         [MenuItem("Survival/Setup/3 - Build Prototype Scene", false, 22)]
         public static void BuildPrototypeScene()
         {
+            if (SceneWiring.RefuseDuringPlayMode("Prototype")) return;
+
             if (AssetDatabase.LoadAssetAtPath<WorldSettings>(ProjectPaths.WorldSettingsAsset) == null
                 || AssetDatabase.LoadAssetAtPath<RegionDefinition>(ProjectPaths.TestRegionAsset) == null)
             {

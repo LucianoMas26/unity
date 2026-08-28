@@ -7,6 +7,21 @@ namespace Survival.EditorTools
     public static class SceneWiring
     {
         /// <summary>
+        /// Refuses to build a scene while the game is running. Unity throws from
+        /// EditorSceneManager the moment you try, and the builder dies halfway through -- after
+        /// the importer has already run and logged its success, which makes it look like the
+        /// whole thing worked. Fail first, and say why.
+        /// </summary>
+        public static bool RefuseDuringPlayMode(string what)
+        {
+            if (!EditorApplication.isPlaying) return false;
+
+            Debug.LogError($"[Survival] Sal del modo Play antes de construir '{what}'. " +
+                           "Unity no permite reemplazar la escena mientras el juego corre.");
+            return true;
+        }
+
+        /// <summary>
         /// Assigns a serialised reference and confirms it actually stuck. Unity stores null in
         /// silence when the value's native object has been destroyed, and a scene wired up by
         /// script has no human looking at the Inspector to notice. Fail loudly here rather than
@@ -40,7 +55,9 @@ namespace Survival.EditorTools
             var existing = AssetDatabase.LoadAssetAtPath<Material>(assetPath);
             if (existing != null) return existing;
 
-            Shader shader = Shader.Find("Universal Render Pipeline/Lit") ?? Shader.Find("Standard");
+            // == rather than ??: Unity's null is not C#'s null. See CharacterSetup for the bite.
+            Shader shader = Shader.Find("Universal Render Pipeline/Lit");
+            if (shader == null) shader = Shader.Find("Standard");
             var material = new Material(shader) { name = System.IO.Path.GetFileNameWithoutExtension(assetPath) };
 
             material.SetColor("_BaseColor", color);
