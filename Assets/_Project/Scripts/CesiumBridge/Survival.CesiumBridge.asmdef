@@ -1,18 +1,13 @@
 {
-    "name": "Survival.Editor",
-    "rootNamespace": "Survival.EditorTools",
+    "name": "Survival.CesiumBridge",
+    "rootNamespace": "Survival.CesiumBridge",
     "references": [
         "Survival.Core",
-        "Survival.World",
         "Survival.Player",
-        "Survival.GeoData",
-        "Unity.RenderPipelines.Universal.Runtime",
-        "Survival.CesiumBridge",
-        "CesiumForUnity"
+        "CesiumForUnity",
+        "Unity.Mathematics"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
@@ -20,11 +15,6 @@
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [
-        {
-            "name": "com.unity.render-pipelines.universal",
-            "expression": "",
-            "define": "SURVIVAL_URP"
-        },
         {
             "name": "com.cesium.unity",
             "expression": "",

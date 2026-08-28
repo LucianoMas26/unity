@@ -17,6 +17,13 @@ namespace Survival.EditorTools
     public static class GeoImporter
     {
         const string SourceFolder = ProjectPaths.Root + "/GeoData/Source";
+
+        /// <summary>
+        /// Window radius, in grid cells, for stripping buildings out of the elevation data.
+        /// The Rosario grid is 39 m per cell, so 2 removes anything narrower than about 160 m --
+        /// city blocks go, the river bluff stays.
+        /// </summary>
+        const int BuildingRemovalRadius = 2;
         const string DatasetFolder = ProjectPaths.Root + "/GeoData";
 
         // JSON shapes. Field names match the files exactly: JsonUtility does not rename.
@@ -71,6 +78,13 @@ namespace Survival.EditorTools
                 return null;
             }
 
+            // The download is a surface model: the buildings are inside the heightmap. Left in,
+            // the city renders as hills and the real buildings sit on top of their own bulk.
+            float roughnessBefore = SurfaceModelFilter.MeasureRoughness(elevation.elevations, elevation.resolution);
+            float[] ground = SurfaceModelFilter.RemoveBuildings(
+                elevation.elevations, elevation.resolution, BuildingRemovalRadius);
+            float roughnessAfter = SurfaceModelFilter.MeasureRoughness(ground, elevation.resolution);
+
             var points = new Vector2[osm.px.Length];
             for (int i = 0; i < points.Length; i++) points[i] = new Vector2(osm.px[i], osm.py[i]);
 
@@ -114,12 +128,16 @@ namespace Survival.EditorTools
             }
 
             dataset.Populate(regionName, osm.originLat, osm.originLon, osm.sizeX, osm.sizeZ,
-                             elevation.resolution, elevation.elevations,
+                             elevation.resolution, ground,
                              buildings, roads,
                              Convert(osm.water), Convert(osm.parks), points);
 
             EditorUtility.SetDirty(dataset);
             AssetDatabase.SaveAssets();
+
+            Debug.Log($"[GeoImporter] Terreno desnudo estimado: rugosidad {roughnessBefore:F2} m -> " +
+                      $"{roughnessAfter:F2} m con radio {BuildingRemovalRadius}. " +
+                      "Los edificios estaban dentro del dato de elevacion.");
 
             Debug.Log($"[GeoImporter] '{regionName}': {buildings.Length} edificios, {roads.Length} calles, " +
                       $"{dataset.Water.Length} de agua, {dataset.Parks.Length} parques. " +

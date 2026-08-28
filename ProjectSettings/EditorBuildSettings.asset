@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/RealWorld.unity
     guid: af9f20ee5d513bf4d93c770e42e3937c
+  - enabled: 1
+    path: Assets/_Project/Scenes/CesiumEvaluation.unity
+    guid: 1012722c298facf469781cff5607703e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
