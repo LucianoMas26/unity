@@ -39,7 +39,7 @@ namespace Survival.GeoData
         [Tooltip("Metres of invented roughness added below the data's own resolution, to stop " +
                  "the interpolated grid reading as flat facets. Keep it small: it must not " +
                  "compete with the real relief.")]
-        [SerializeField] float _detailAmplitude = 0.8f;
+        [SerializeField] float _detailAmplitude = 0f;
 
         [Header("Features")]
         [SerializeField] GeoBuilding[] _buildings = new GeoBuilding[0];

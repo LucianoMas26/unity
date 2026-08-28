@@ -29,14 +29,14 @@ namespace Survival.GeoData
         [SerializeField] bool _buildings = true;
         [SerializeField] bool _roads = true;
         [SerializeField] bool _water = true;
-        [SerializeField] bool _parks = true;
+        [SerializeField] bool _parks = false; // Giant untessellated polygons slice across terrain
 
         [Header("Placement")]
         [Tooltip("Metres each building is sunk into the ground, so it does not float on a slope.")]
-        [SerializeField] float _foundationDepth = 4f;
+        [SerializeField] float _foundationDepth = 6f;
 
         [Tooltip("Metres that flat features sit above the terrain, to stop z-fighting.")]
-        [SerializeField] float _surfaceOffset = 0.15f;
+        [SerializeField] float _surfaceOffset = 0.35f;
 
         [SerializeField] bool _generateColliders = true;
 
@@ -98,76 +98,84 @@ namespace Survival.GeoData
 
         // --- Buildings ------------------------------------------------------------------
 
+        [Header("Building Heights & Explorable LODs")]
+        [Tooltip("Minimum height in metres so buildings never look smaller than the player.")]
+        [SerializeField] float _minBuildingHeight = 10.0f;
+
+        [Tooltip("Height per floor in metres for explorable buildings.")]
+        [SerializeField] float _floorHeight = 3.2f;
+
+        [Tooltip("Ratio of buildings generated as explorable interiors with doors and stairs (LOD 1).")]
+        [Range(0f, 0.5f)][SerializeField] float _explorableRatio = 0.08f;
+
+        [SerializeField] int _seed = 1337;
+
         void BuildBuildings()
         {
-            var vertices = new List<Vector3>();
-            var colors = new List<Color>();
-            var triangles = new List<int>();
+            var solidVertices = new List<Vector3>();
+            var solidColors = new List<Color>();
+            var solidTriangles = new List<int>();
 
-            foreach (GeoBuilding building in _dataset.Buildings)
+            int explorableCount = 0;
+            int solidCount = 0;
+
+            var explorableParent = new GameObject("ExplorableBuildings");
+            explorableParent.transform.SetParent(transform, false);
+
+            for (int i = 0; i < _dataset.Buildings.Length; i++)
             {
+                GeoBuilding building = _dataset.Buildings[i];
                 float ground = _dataset.SampleElevation(building.Centre.x, building.Centre.y);
-                AddBox(vertices, colors, triangles, building, ground);
+                Color colour = ColourFor(building.Archetype);
+
+                bool isExplorable = IsBuildingExplorable(i, building);
+
+                if (isExplorable)
+                {
+                    explorableCount++;
+                    var explorableVertices = new List<Vector3>();
+                    var explorableColors = new List<Color>();
+                    var explorableTriangles = new List<int>();
+
+                    BuildingMeshBuilder.AddExplorableBuilding(
+                        explorableVertices, explorableColors, explorableTriangles,
+                        building, ground, _foundationDepth, _minBuildingHeight, _floorHeight, colour);
+
+                    CreateMesh($"Building_{i}_Explorable", explorableVertices, explorableColors,
+                               explorableTriangles, true, explorableParent.transform);
+                }
+                else
+                {
+                    solidCount++;
+                    BuildingMeshBuilder.AddSolidBuilding(
+                        solidVertices, solidColors, solidTriangles,
+                        building, ground, _foundationDepth, _minBuildingHeight, colour);
+                }
             }
 
-            CreateMesh("Buildings", vertices, colors, triangles, _generateColliders);
+            if (solidVertices.Count > 0)
+            {
+                CreateMesh("SolidBuildings_LOD0", solidVertices, solidColors, solidTriangles, _generateColliders, transform);
+            }
+
+            Debug.Log($"[GeoFeatureSpawner] Edificios: {solidCount} solidos (LOD 0) y {explorableCount} explorables (LOD 1).", this);
         }
 
-        void AddBox(List<Vector3> vertices, List<Color> colors, List<int> triangles,
-                    in GeoBuilding building, float ground)
+        bool IsBuildingExplorable(int index, in GeoBuilding building)
         {
-            float radians = building.RotationDegrees * Mathf.Deg2Rad;
-            float cos = Mathf.Cos(radians);
-            float sin = Mathf.Sin(radians);
+            if (_explorableRatio <= 0f) return false;
 
-            Vector2 half = building.Size * 0.5f;
-            float bottom = ground - _foundationDepth;
-            float top = ground + building.Height;
-            Color colour = ColourFor(building.Archetype);
+            int hash = (index * 397) ^ (_seed * 17) ^ (int)(building.Centre.x * 100f) ^ (int)(building.Centre.y * 100f);
+            float normalized = Mathf.Abs(hash % 1000) / 1000f;
 
-            // Four corners of the footprint, rotated into place.
-            var corners = new Vector3[4];
-            for (int i = 0; i < 4; i++)
+            if (building.Archetype == BuildingArchetype.Hospital ||
+                building.Archetype == BuildingArchetype.Commercial ||
+                building.Archetype == BuildingArchetype.Apartments)
             {
-                float sx = (i == 0 || i == 3) ? -half.x : half.x;
-                float sz = (i < 2) ? -half.y : half.y;
-                corners[i] = new Vector3(
-                    building.Centre.x + sx * cos - sz * sin,
-                    0f,
-                    building.Centre.y + sx * sin + sz * cos);
+                return normalized < Mathf.Min(0.35f, _explorableRatio * 3f);
             }
 
-            int baseIndex = vertices.Count;
-
-            // Walls: each side gets its own vertices so the box stays flat-shaded.
-            for (int i = 0; i < 4; i++)
-            {
-                Vector3 a = corners[i];
-                Vector3 b = corners[(i + 1) % 4];
-
-                vertices.Add(new Vector3(a.x, bottom, a.z));
-                vertices.Add(new Vector3(b.x, bottom, b.z));
-                vertices.Add(new Vector3(b.x, top, b.z));
-                vertices.Add(new Vector3(a.x, top, a.z));
-
-                for (int c = 0; c < 4; c++) colors.Add(colour);
-
-                int v = baseIndex + i * 4;
-                triangles.Add(v); triangles.Add(v + 2); triangles.Add(v + 1);
-                triangles.Add(v); triangles.Add(v + 3); triangles.Add(v + 2);
-            }
-
-            // Roof, lightened so the massing reads from above.
-            int roof = vertices.Count;
-            Color roofColour = Color.Lerp(colour, Color.white, 0.18f);
-            for (int i = 0; i < 4; i++)
-            {
-                vertices.Add(new Vector3(corners[i].x, top, corners[i].z));
-                colors.Add(roofColour);
-            }
-
-            triangles.Add(roof); triangles.Add(roof + 1); triangles.Add(roof + 2);
-            triangles.Add(roof); triangles.Add(roof + 2); triangles.Add(roof + 3);
+            return normalized < _explorableRatio;
         }
 
         /// <summary>
@@ -276,12 +284,12 @@ namespace Survival.GeoData
         // --- Mesh plumbing --------------------------------------------------------------
 
         void CreateMesh(string label, List<Vector3> vertices, List<Color> colors,
-                        List<int> triangles, bool collider)
+                        List<int> triangles, bool collider, Transform parent = null)
         {
             if (vertices.Count == 0 || triangles.Count == 0) return;
 
             var go = new GameObject(label);
-            go.transform.SetParent(transform, false);
+            go.transform.SetParent(parent != null ? parent : transform, false);
 
             var mesh = new Mesh { name = label };
             // Well past 65535 vertices for the buildings, so 32-bit indices are not optional.

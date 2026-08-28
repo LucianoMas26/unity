@@ -54,7 +54,7 @@ MonoBehaviour:
     Peak: {r: 0.62, g: 0.63, b: 0.61, a: 1}
     Shore: {r: 0.44, g: 0.42, b: 0.33, a: 1}
     RockSlope: 0.35
-    HighlandHeight: 24.75
-    PeakHeight: 46.75
+    HighlandHeight: 17.55
+    PeakHeight: 33.15
   _fogColor: {r: 0.55, g: 0.57, b: 0.54, a: 1}
   _fogDensity: 0.0035

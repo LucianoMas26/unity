@@ -96,8 +96,9 @@ namespace Survival.EditorTools
             var follow = go.AddComponent<PlayerCamera>();
             SceneWiring.AssignReference(new SerializedObject(follow), "_target", target);
 
-            // Development-only framing tool. Compiles out of a release build.
+            // Development-only tools. Both compile out of a release build.
             go.AddComponent<CameraTuner>();
+            go.AddComponent<OverviewCamera>();
 
             return go;
         }

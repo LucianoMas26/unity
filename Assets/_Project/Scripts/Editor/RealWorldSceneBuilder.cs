@@ -212,6 +212,9 @@ namespace Survival.EditorTools
             var serialized = new SerializedObject(spawner);
             SceneWiring.AssignReference(serialized, "_dataset", dataset);
             SceneWiring.AssignReference(serialized, "_material", material);
+            serialized.FindProperty("_parks").boolValue = false;
+            serialized.FindProperty("_minBuildingHeight").floatValue = 10f;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
         }
 
         static void ApplyLighting(RegionDefinition region)
