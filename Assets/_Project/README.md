@@ -49,6 +49,23 @@ públicas gratuitas cada vez que alguien pulsa Play.
 Fuentes: elevación de [opentopodata.org](https://www.opentopodata.org) (dataset `srtm30m`),
 vectores de [OpenStreetMap](https://www.openstreetmap.org/copyright) vía Overpass, ambos bajo ODbL.
 
+### Alturas de edificios: cuatro fuentes evaluadas
+
+Medidas contra los 281 edificios de Rosario que declaran altura en OSM:
+
+| Fuente | Cobertura | Veredicto |
+| --- | --- | --- |
+| OpenStreetMap (tags) | 3,8 % | Dato humano real. Se usa siempre que existe |
+| GHSL / OpenBuildingMap | 100 % | ~27 m casi uniformes: sobreestima 1,8× en el centro y 3,6× en la periferia. **Descartada** |
+| Microsoft GlobalMLBuildingFootprints | 0 % en Argentina | Ni una altura en 330.923 edificios del tile, y 2.548 huellas contra 7.454 de OSM. **Descartada** |
+| **Google Open Buildings 2.5D** | **99 %** | Correlación log 0,74; 19 de los 30 más altos reales están en su top-30. Sobreestima ~2,5× de forma **uniforme**, así que se recalibra |
+
+Google es la única que sabe *cuáles* edificios son altos. En error mediano empata con adivinar,
+porque la mediana la dominan las casas bajas — pero en la banda de 30 m o más el error cae de
+35,2 m a 14,2 m, y ahí es donde vive la silueta.
+
+Reparto actual: **Google 7258 · OSM 174 · estimación 22**.
+
 ### Límites conocidos
 
 - SRTM tiene ~30 m de resolución y la rejilla guardada ~39 m, contra 2,7 m entre vértices del
