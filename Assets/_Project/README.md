@@ -64,7 +64,27 @@ Google es la única que sabe *cuáles* edificios son altos. En error mediano emp
 porque la mediana la dominan las casas bajas — pero en la banda de 30 m o más el error cae de
 35,2 m a 14,2 m, y ahí es donde vive la silueta.
 
-Reparto actual: **Google 7258 · OSM 174 · estimación 22**.
+Reparto actual en Rosario: **Google 7258 · OSM 174 · estimación 22**.
+
+#### Cobertura mundial: las dos fuentes son complementarias
+
+Google 2.5D cubre solo el Sur Global. Comprobado contra sus propios manifiestos de tiles:
+
+| Ciudad | Google 2.5D | Altura en tags de OSM |
+| --- | --- | --- |
+| Rosario, Buenos Aires, México DF | Cubierta | 7,3 % |
+| Lagos, Delhi, Yakarta | Cubierta | — |
+| Madrid | **Sin cobertura** | 23,1 % |
+| Berlín | **Sin cobertura** | 71,1 % |
+| Nueva York | **Sin cobertura** | 87,9 % |
+| Tokio, Sídney | Sin manifiesto | — |
+
+Donde Google no llega, OSM está bien etiquetado: son comunidades de mapeo maduras. Y donde OSM
+es pobre, Google cubre. Por eso la cadena es **OSM → Google → estimación propia**, y no hace
+falta una fuente única global.
+
+El hueco real es el **sur de Europa**: Madrid queda con 23 % de OSM y sin Google. Ahí habría
+que mirar datos catastrales nacionales, que en España son públicos.
 
 ### Límites conocidos
 
