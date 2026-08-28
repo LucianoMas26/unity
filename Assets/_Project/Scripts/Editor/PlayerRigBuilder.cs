@@ -34,16 +34,38 @@ namespace Survival.EditorTools
             var model = new GameObject("Model");
             model.transform.SetParent(player.transform, false);
 
+            // The imported character if it is there, the capsule if it is not. Scene building has
+            // to keep working on a machine that never imported the art pack.
+            GameObject character = CharacterSetup.TryInstantiateCharacter(model.transform, CharacterHeight);
+            if (character == null) BuildPlaceholderBody(model.transform, bodyMaterial);
+
+            player.AddComponent<PlayerMovement>();
+            player.AddComponent<StaminaSystem>();
+            player.AddComponent<PlayerController>();
+
+            var animation = player.AddComponent<PlayerAnimation>();
+            if (character != null)
+                SceneWiring.AssignReference(new SerializedObject(animation), "_animator",
+                                            character.GetComponent<Animator>());
+
+            return player;
+        }
+
+        /// <summary>
+        /// Fallback body. Kept rather than deleted: it is the thing to fall back to when a
+        /// character problem needs ruling out, and it costs nothing to keep around.
+        /// </summary>
+        static void BuildPlaceholderBody(Transform parent, Material bodyMaterial)
+        {
             // A capsule primitive is 2 units tall at scale 1.
             GameObject body = GameObject.CreatePrimitive(PrimitiveType.Capsule);
             body.name = "Body";
-            body.transform.SetParent(model.transform, false);
+            body.transform.SetParent(parent, false);
             body.transform.localPosition = new Vector3(0f, CharacterHeight * 0.5f, 0f);
             body.transform.localScale = new Vector3(0.64f, CharacterHeight * 0.5f, 0.64f);
             Object.DestroyImmediate(body.GetComponent<Collider>()); // CharacterController is the collider
 
-            // Without a facing marker it is impossible to tell which way a capsule points, and
-            // the whole point of this controller is watching which way it turns.
+            // Without a facing marker it is impossible to tell which way a capsule points.
             GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Cube);
             marker.name = "FacingMarker";
             marker.transform.SetParent(body.transform, false);
@@ -51,17 +73,10 @@ namespace Survival.EditorTools
             marker.transform.localScale = new Vector3(0.35f, 0.22f, 0.6f);
             Object.DestroyImmediate(marker.GetComponent<Collider>());
 
-            if (bodyMaterial != null)
-            {
-                body.GetComponent<MeshRenderer>().sharedMaterial = bodyMaterial;
-                marker.GetComponent<MeshRenderer>().sharedMaterial = bodyMaterial;
-            }
+            if (bodyMaterial == null) return;
 
-            player.AddComponent<PlayerMovement>();
-            player.AddComponent<StaminaSystem>();
-            player.AddComponent<PlayerController>();
-
-            return player;
+            body.GetComponent<MeshRenderer>().sharedMaterial = bodyMaterial;
+            marker.GetComponent<MeshRenderer>().sharedMaterial = bodyMaterial;
         }
 
         public static GameObject CreateCamera(Transform target, Color background)
