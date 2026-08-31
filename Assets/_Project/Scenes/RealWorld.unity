@@ -119,439 +119,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &79259092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 79259094}
-  - component: {fileID: 79259093}
-  m_Layer: 0
-  m_Name: World
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &79259093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79259092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5678fe6e1aa99d94f90a424cc49e5c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Survival.World::Survival.World.WorldStreamer
-  _settings: {fileID: 11400000, guid: fa601008d84a5c54f86f018749dee687, type: 2}
-  _viewer: {fileID: 2088934340}
-  _terrainMaterial: {fileID: 2100000, guid: 562dd80a7e3e93f4eb453640dd7ff048, type: 2}
-  _heightSourceOverride: {fileID: 11400000, guid: 016df9d883303214bb26559c2c0d4190, type: 2}
-  _logDiagnostics: 1
---- !u!4 &79259094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79259092}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &217460152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 217460154}
-  - component: {fileID: 217460153}
-  m_Layer: 0
-  m_Name: GeoFeatures
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &217460153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217460152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba8379b62c5b404abbeb3ea5d5cf902, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Survival.GeoData::Survival.GeoData.GeoFeatureSpawner
-  _dataset: {fileID: 11400000, guid: 016df9d883303214bb26559c2c0d4190, type: 2}
-  _material: {fileID: 2100000, guid: 562dd80a7e3e93f4eb453640dd7ff048, type: 2}
-  _buildings: 1
-  _roads: 1
-  _water: 1
-  _parks: 0
-  _foundationDepth: 6
-  _surfaceOffset: 0.35
-  _generateColliders: 1
-  _minBuildingHeight: 10
-  _floorHeight: 3.2
-  _explorableRatio: 0.08
-  _seed: 1337
---- !u!4 &217460154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217460152}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &861591106
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 861591108}
-  - component: {fileID: 861591107}
-  m_Layer: 0
-  m_Name: Sun
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &861591107
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861591106}
-  m_Enabled: 1
-  serializedVersion: 12
-  m_Type: 1
-  m_Color: {r: 0.95, g: 0.94, b: 0.9, a: 1}
-  m_Intensity: 1.15
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 0.5, y: 0.5}
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 0.75
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ForceVisible: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_LightUnit: 1
-  m_LuxAtDistance: 1
-  m_EnableSpotReflector: 1
---- !u!4 &861591108
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861591106}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.3726469, y: -0.27680114, z: 0.11749511, w: 0.8779011}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &958450484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 958450485}
-  m_Layer: 0
-  m_Name: Model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &958450485
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958450484}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1201139048}
-  m_Father: {fileID: 2088934340}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1101325730
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1101325737}
-  - component: {fileID: 1101325736}
-  - component: {fileID: 1101325735}
-  - component: {fileID: 1101325734}
-  - component: {fileID: 1101325733}
-  - component: {fileID: 1101325732}
-  - component: {fileID: 1101325731}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1101325731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecb4cbb7e0e99eb448935db831cb8539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Survival.Player::Survival.Player.OverviewCamera
-  _distance: 900
-  _minDistance: 40
-  _maxDistance: 6000
-  _pitch: 30
-  _yaw: 45
-  _orthographic: 1
-  _panSpeed: 400
-  _orbitSpeed: 4
---- !u!114 &1101325732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4541480874c4da145a7b2916835dcf1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Survival.Player::Survival.Player.CameraTuner
-  _presets:
-  - Name: Cerca / agil
-    Distance: 3.5
-    Pitch: 10
-    FieldOfView: 60
-    PivotHeight: 1.45
-  - Name: Base
-    Distance: 5
-    Pitch: 15
-    FieldOfView: 62
-    PivotHeight: 1.5
-  - Name: Lejos / explorar
-    Distance: 7
-    Pitch: 24
-    FieldOfView: 66
-    PivotHeight: 1.6
-  _visibleOnStart: 1
---- !u!114 &1101325733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 229d627fc4902024687aeff4db89f69d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Survival.Player::Survival.Player.PlayerCamera
-  _target: {fileID: 2088934340}
-  _pivotHeight: 1.5
-  _distance: 5
-  _minDistance: 2.5
-  _maxDistance: 7
-  _startPitch: 15
-  _minPitch: -25
-  _maxPitch: 65
-  _positionSmoothing: 0.055
-  _rotationSmoothing: 0
-  _captureCursor: 1
-  _input:
-    _lookSensitivity: 2.4
-    _invertLookY: 0
-    _zoomSensitivity: 4
---- !u!114 &1101325734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5f66748967d034da6f378e70f6ae53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Survival.Player::Survival.Player.CameraCollision
-  _obstacleMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  _probeRadius: 0.28
-  _padding: 0.15
-  _minimumDistance: 0.6
-  _returnSpeed: 6
---- !u!81 &1101325735
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  m_Enabled: 1
---- !u!20 &1101325736
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.62, g: 0.65, b: 0.68, a: 1}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.12
-  far clip plane: 1500
-  field of view: 62
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1101325737
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101325730}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1201139047
+--- !u!1001 &350654909
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 958450485}
+    m_TransformParent: {fileID: 2021178386}
     m_Modifications:
     - target: {fileID: 5073209772239283341, guid: 34944ad8fb77bd142b3023428b842fef, type: 3}
       propertyPath: m_LocalScale.x
@@ -615,26 +189,26 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8391741013771059204, guid: 34944ad8fb77bd142b3023428b842fef, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1201139050}
+      addedObject: {fileID: 350654912}
   m_SourcePrefab: {fileID: 100100000, guid: 34944ad8fb77bd142b3023428b842fef, type: 3}
---- !u!4 &1201139048 stripped
+--- !u!4 &350654910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5073209772239283341, guid: 34944ad8fb77bd142b3023428b842fef, type: 3}
-  m_PrefabInstance: {fileID: 1201139047}
+  m_PrefabInstance: {fileID: 350654909}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1201139049 stripped
+--- !u!1 &350654911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8391741013771059204, guid: 34944ad8fb77bd142b3023428b842fef, type: 3}
-  m_PrefabInstance: {fileID: 1201139047}
+  m_PrefabInstance: {fileID: 350654909}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1201139050
+--- !u!95 &350654912
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201139049}
+  m_GameObject: {fileID: 350654911}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9d96fe4fcd35cd94bb044fc76f910622, type: 3}
   m_Controller: {fileID: 9100000, guid: 01140869df5bbea40b190b22c2d291c0, type: 2}
@@ -649,7 +223,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &2088934339
+--- !u!1 &1158733866
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,12 +231,357 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2088934340}
-  - component: {fileID: 2088934345}
-  - component: {fileID: 2088934344}
-  - component: {fileID: 2088934343}
-  - component: {fileID: 2088934342}
-  - component: {fileID: 2088934341}
+  - component: {fileID: 1158733868}
+  - component: {fileID: 1158733867}
+  m_Layer: 0
+  m_Name: Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1158733867
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158733866}
+  m_Enabled: 1
+  serializedVersion: 12
+  m_Type: 1
+  m_Color: {r: 0.95, g: 0.94, b: 0.9, a: 1}
+  m_Intensity: 1.15
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize2D: {x: 0.5, y: 0.5}
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 0.75
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
+--- !u!4 &1158733868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158733866}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.3726469, y: -0.27680114, z: 0.11749511, w: 0.8779011}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1429874878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429874880}
+  - component: {fileID: 1429874879}
+  m_Layer: 0
+  m_Name: GeoFeatures
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1429874879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429874878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba8379b62c5b404abbeb3ea5d5cf902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Survival.GeoData::Survival.GeoData.GeoFeatureSpawner
+  _dataset: {fileID: 11400000, guid: 016df9d883303214bb26559c2c0d4190, type: 2}
+  _material: {fileID: 2100000, guid: 562dd80a7e3e93f4eb453640dd7ff048, type: 2}
+  _buildings: 1
+  _roads: 1
+  _water: 1
+  _parks: 0
+  _foundationDepth: 6
+  _surfaceOffset: 0.35
+  _generateColliders: 1
+  _minBuildingHeight: 10
+  _floorHeight: 3.2
+  _explorableRatio: 0.08
+  _seed: 1337
+--- !u!4 &1429874880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429874878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1488171482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488171489}
+  - component: {fileID: 1488171488}
+  - component: {fileID: 1488171487}
+  - component: {fileID: 1488171486}
+  - component: {fileID: 1488171485}
+  - component: {fileID: 1488171484}
+  - component: {fileID: 1488171483}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1488171483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb4cbb7e0e99eb448935db831cb8539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Survival.Player::Survival.Player.OverviewCamera
+  _distance: 900
+  _minDistance: 40
+  _maxDistance: 6000
+  _pitch: 30
+  _yaw: 45
+  _orthographic: 1
+  _panSpeed: 400
+  _orbitSpeed: 4
+--- !u!114 &1488171484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4541480874c4da145a7b2916835dcf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Survival.Player::Survival.Player.CameraTuner
+  _presets:
+  - Name: Cerca / agil
+    Distance: 3.5
+    Pitch: 10
+    FieldOfView: 60
+    PivotHeight: 1.45
+  - Name: Base
+    Distance: 5
+    Pitch: 15
+    FieldOfView: 62
+    PivotHeight: 1.5
+  - Name: Lejos / explorar
+    Distance: 7
+    Pitch: 24
+    FieldOfView: 66
+    PivotHeight: 1.6
+  _visibleOnStart: 1
+--- !u!114 &1488171485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229d627fc4902024687aeff4db89f69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Survival.Player::Survival.Player.PlayerCamera
+  _target: {fileID: 1556618667}
+  _pivotHeight: 1.5
+  _distance: 5
+  _minDistance: 2.5
+  _maxDistance: 7
+  _startPitch: 15
+  _minPitch: -25
+  _maxPitch: 65
+  _positionSmoothing: 0.055
+  _rotationSmoothing: 0
+  _captureCursor: 1
+  _input:
+    _lookSensitivity: 2.4
+    _invertLookY: 0
+    _zoomSensitivity: 4
+--- !u!114 &1488171486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5f66748967d034da6f378e70f6ae53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Survival.Player::Survival.Player.CameraCollision
+  _obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  _probeRadius: 0.28
+  _padding: 0.15
+  _minimumDistance: 0.6
+  _returnSpeed: 6
+--- !u!81 &1488171487
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  m_Enabled: 1
+--- !u!20 &1488171488
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.62, g: 0.65, b: 0.68, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.12
+  far clip plane: 1500
+  field of view: 62
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1488171489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488171482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1556618666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556618667}
+  - component: {fileID: 1556618672}
+  - component: {fileID: 1556618671}
+  - component: {fileID: 1556618670}
+  - component: {fileID: 1556618669}
+  - component: {fileID: 1556618668}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -670,62 +589,62 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2088934340
+--- !u!4 &1556618667
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088934339}
+  m_GameObject: {fileID: 1556618666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2499.1, y: 25.007652, z: 2477.39}
+  m_LocalPosition: {x: 7430.08, y: 30.687822, z: 7810.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 958450485}
+  - {fileID: 2021178386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2088934341
+--- !u!114 &1556618668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088934339}
+  m_GameObject: {fileID: 1556618666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8be51655da0645a4c8a5dde447f43856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Survival.Player::Survival.Player.PlayerAnimation
-  _animator: {fileID: 1201139050}
+  _animator: {fileID: 350654912}
   _speedDamping: 0.1
---- !u!114 &2088934342
+--- !u!114 &1556618669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088934339}
+  m_GameObject: {fileID: 1556618666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93f03ed8cc083ca40a19c38445f39aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Survival.Player::Survival.Player.PlayerController
-  _cameraTransform: {fileID: 1101325737}
-  _stamina: {fileID: 2088934343}
+  _cameraTransform: {fileID: 1488171489}
+  _stamina: {fileID: 1556618670}
   _sprintInputThreshold: 0.4
   _input:
     _lookSensitivity: 2.4
     _invertLookY: 0
     _zoomSensitivity: 4
---- !u!114 &2088934343
+--- !u!114 &1556618670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088934339}
+  m_GameObject: {fileID: 1556618666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3885a7b530f923e44834e26d5473d761, type: 3}
@@ -736,13 +655,13 @@ MonoBehaviour:
   _regenPerSecond: 28
   _regenDelay: 0.7
   _recoveryThreshold: 20
---- !u!114 &2088934344
+--- !u!114 &1556618671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088934339}
+  m_GameObject: {fileID: 1556618666}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf2d1cafc9587ad41bdb36a6bf9558ad, type: 3}
@@ -763,13 +682,13 @@ MonoBehaviour:
   _jumpBuffer: 0.12
   _groundStick: -4
   _terminalVelocity: -55
---- !u!143 &2088934345
+--- !u!143 &1556618672
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088934339}
+  m_GameObject: {fileID: 1556618666}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -788,12 +707,93 @@ CharacterController:
   m_SkinWidth: 0.03
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!1 &2021178385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021178386}
+  m_Layer: 0
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2021178386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021178385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 350654910}
+  m_Father: {fileID: 1556618667}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2138884014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138884016}
+  - component: {fileID: 2138884015}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2138884015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138884014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5678fe6e1aa99d94f90a424cc49e5c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Survival.World::Survival.World.WorldStreamer
+  _settings: {fileID: 11400000, guid: fa601008d84a5c54f86f018749dee687, type: 2}
+  _viewer: {fileID: 1556618667}
+  _terrainMaterial: {fileID: 2100000, guid: 562dd80a7e3e93f4eb453640dd7ff048, type: 2}
+  _heightSourceOverride: {fileID: 11400000, guid: 016df9d883303214bb26559c2c0d4190, type: 2}
+  _logDiagnostics: 1
+--- !u!4 &2138884016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138884014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 861591108}
-  - {fileID: 2088934340}
-  - {fileID: 1101325737}
-  - {fileID: 79259094}
-  - {fileID: 217460154}
+  - {fileID: 1158733868}
+  - {fileID: 1556618667}
+  - {fileID: 1488171489}
+  - {fileID: 2138884016}
+  - {fileID: 1429874880}

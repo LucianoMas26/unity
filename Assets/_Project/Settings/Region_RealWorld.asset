@@ -46,7 +46,7 @@ MonoBehaviour:
       Lacunarity: 2
       Gain: 0.5
       Ridged: 0
-    WaterLevel: 1.5
+    WaterLevel: 5.5
   _palette:
     Lowland: {r: 0.32, g: 0.38, b: 0.24, a: 1}
     Highland: {r: 0.27, g: 0.3, b: 0.22, a: 1}
@@ -54,7 +54,7 @@ MonoBehaviour:
     Peak: {r: 0.62, g: 0.63, b: 0.61, a: 1}
     Shore: {r: 0.44, g: 0.42, b: 0.33, a: 1}
     RockSlope: 0.35
-    HighlandHeight: 17.55
-    PeakHeight: 33.15
+    HighlandHeight: 16.824999
+    PeakHeight: 28.225
   _fogColor: {r: 0.55, g: 0.57, b: 0.54, a: 1}
   _fogDensity: 0.0035

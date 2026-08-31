@@ -15,9 +15,9 @@ MonoBehaviour:
   _seed: 20260826
   _randomiseSeedOnPlay: 0
   _region: {fileID: 11400000, guid: dc9c5947dde3f1a4a822019ae06c5f03, type: 2}
-  _regionSizeMeters: 5010.8
-  _originLatitude: -32.9704
-  _originLongitude: -60.6565
+  _regionSizeMeters: 15526.7
+  _originLatitude: -33.02
+  _originLongitude: -60.73
   _chunkSize: 128
   _chunkResolution: 48
   _viewDistanceInChunks: 8
